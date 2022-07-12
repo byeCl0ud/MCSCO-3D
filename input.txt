@@ -1,0 +1,11 @@
+1	! lt = lattice type
+30	! L = number of atoms in one dimension
+100	! Ti = initial temperature
+150	! Tf = final temperature
+199	! nTs = number of temperature steps
+100	! nrp = number of full MC steps 
+1000	! D = parameter delta
+-50	! J = parameter J
+3000	! r = parameter r
+2	! q = up-down 1-off/2-on
+1089551	! seed = RNG seed
