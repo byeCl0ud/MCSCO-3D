@@ -1,4 +1,3 @@
-1	! lt = lattice type
 30	! L = number of atoms in one dimension
 100	! Ti = initial temperature
 150	! Tf = final temperature

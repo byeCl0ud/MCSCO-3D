@@ -1,12 +1,12 @@
         subroutine corepart(
      1          outputFile,
-     2          lt, nMC,
+     2          nMC,
      3          L, Ti, Tf, nTs, nrp,
      4          D, Jcoop, r, q,
      5          ConcInit )
 
          character output*128
-         integer lt, L, nTs, q, nrp
+         integer L, nTs, q, nrp
          integer iTstep
          real*8 D, Jcoop, r, Ti, Tf
          real*8 dT, ConcInit
@@ -43,17 +43,16 @@ c functions:
        real*8  Energy, dEnergy
 
        call lattice(
-     1       lt,
      2       nnnumber, nnnum_p,
      3       idx, jdy )
        
        call latinit(
-     1       lt, L, L_p,
+     1       L, L_p,
      2       ConcInit,
      3       ijatom )
        
        E = Energy(
-     1       lt, L, L_p,
+     1       L, L_p,
      2       nnnumber, nnnum_p,
      3       idx, jdy,
      4       D, Jcoop,
@@ -83,10 +82,8 @@ c functions:
        leadT = leadT - dabs(dT)
        T = T + dT*(nint(leadT/dabs(leadT-1.d-3)))**(3-q)
 
-c       WRITE(*,*) 'T=', T
-
        call MonteCarlo(
-     1        lt, L, L_p,
+     1        L, L_p,
      2        nnnumber, nnnum_p,
      3        idx, jdy,
      4        D, Jcoop, r, T,

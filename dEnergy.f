@@ -1,10 +1,10 @@
       real*8 function dEnergy(
-     1       lt, L, L_p,       
+     1       L, L_p,       
      2       nnnumber, nnnum_p,       
      3       idx, jdy,
      4       D, Jcoop, r, T,    
      5       ijatom,i,j  ) 
-       integer lt, L, L_p, nnnumber, nnnum_p
+       integer L, L_p, nnnumber, nnnum_p
        integer idx(nnnum_p), jdy(nnnum_p) 
        real*8  D, Jcoop, r, T, dE2, dE1
        integer idE2, inE2

@@ -11,7 +11,7 @@ c Monte Carlo simulation of Ising-like SCO model in 3D
      1   inputFile='input.txt' ,
      2   outputFile='output.txt' )
 
-       integer lt, L, nTs, q, nMC, nrp
+       integer L, nTs, q, nMC, nrp
        real*8 D, Jcoop, r, Ti, Tf, ConcInit
        parameter( ConcInit=0.5 )
 
@@ -19,7 +19,7 @@ c Monte Carlo simulation of Ising-like SCO model in 3D
 
        call readinput(
      1         inputFile,
-     2         lt, nMC,
+     2         nMC,
      3         L, Ti, Tf, nTs, nrp,
      4         D, Jcoop, r, q )
 
@@ -27,7 +27,7 @@ c Monte Carlo simulation of Ising-like SCO model in 3D
 
       call corepart(
      1          outputFile,
-     2          lt, nMC,
+     2          nMC,
      3          L, Ti, Tf, nTs, nrp,
      4          D, Jcoop, r, q,
      5          ConcInit )

@@ -1,18 +1,17 @@
         subroutine readinput(
      1         inputFile,
-     2         lt, nMC,
+     2         nMC,
      3         L, Ti, Tf, nTs, nrp,
      4         D, Jcoop, r, q )
 
         character inputFile*128
-        integer lt, L, nTs, q, nrp
+        integer L, nTs, q, nrp
         real*8 D, Jcoop, r, Ti, Tf
 
        open(UNIT=11, FILE=inputFile,
      ^      ACCESS='SEQUENTIAL',
      ^      STATUS='OLD' )
 
-          read(11,*) lt
           read(11,*) L
           read(11,*) Ti
           read(11,*) Tf

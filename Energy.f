@@ -1,11 +1,11 @@
       real*8 function Energy(
-     1       lt, L, L_p,       
+     1       L, L_p,       
      2       nnnumber, nnnum_p,       
      3       idx, jdy,
      4       D, Jcoop,      
      5       ijatom,
      6       M  ) 
-       integer lt, L, L_p,nnnumber, nnnum_p
+       integer L, L_p,nnnumber, nnnum_p
        integer idx(nnnum_p), jdy(nnnum_p) 
        real*8  D, Jcoop, E2, E1
        integer iE1, iE2, inE2
@@ -37,5 +37,4 @@
 31     continue  
        E2=Jcoop*iE2
        Energy=E1+0.5*E2
-       WRITE(*,*) 'Energy is',Energy
       end

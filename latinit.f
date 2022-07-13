@@ -1,5 +1,5 @@
       subroutine latinit(
-     1       lt, L, L_p,
+     1       L, L_p,
      2       ConcInit,
      1       ijatom  ) 
 c
@@ -7,7 +7,7 @@ c    Initialises lattice and buffer layer.
 c      ijatom(i,j) = 1 or -1
 c
        implicit none 
-       integer lt, L, L_p
+       integer L, L_p
        real*8  ConcInit      
        integer ijatom(0:L_p+1,0:L_p+1)
        integer itype 

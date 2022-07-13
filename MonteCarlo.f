@@ -1,5 +1,5 @@
         subroutine MonteCarlo(
-     1        lt, L, L_p,
+     1        L, L_p,
      2        nnnumber, nnnum_p,
      3        idx, jdy,
      4        D, Jcoop, r, T,
@@ -8,7 +8,7 @@
      7        ijatom,
      8        nMC, nrp, nrp_p)
 
-       integer lt, L, L_p, nnnumber, nnnum_p
+       integer L, L_p, nnnumber, nnnum_p
        integer idx(nnnum_p), jdy(nnnum_p)       
        real*8  D, Jcoop, r, T, E, dE, Et( nrp_p )
        integer M, Mt( nrp_p )
@@ -34,7 +34,7 @@ cc      Periodic Boundary: ijatom
 c    (1,1)=(1,L+1)=(L+1,1)=(L+1,L+1) 
 
          dE=dEnergy(
-     1       lt, L, L_p,       
+     1       L, L_p,       
      2       nnnumber, nnnum_p,       
      3       idx, jdy,
      4       D, Jcoop, r, T,    
@@ -62,7 +62,7 @@ c    (1,1)=(1,L+1)=(L+1,1)=(L+1,L+1)
 c    (1,L)=(1,0)=(L+1,0)=(L+1,L)   
 
          dE=dEnergy(
-     1       lt, L, L_p,       
+     1       L, L_p,       
      2       nnnumber, nnnum_p,       
      3       idx, jdy,
      4       D, Jcoop, r, T,    
@@ -90,7 +90,7 @@ c    (1,L)=(1,0)=(L+1,0)=(L+1,L)
 c    (L,1)=(0,1)=(0,L+1)=(L,L+1) 
 
          dE=dEnergy(
-     1       lt, L, L_p,       
+     1       L, L_p,       
      2       nnnumber, nnnum_p,       
      3       idx, jdy,
      4       D, Jcoop, r, T,    
@@ -118,7 +118,7 @@ c    (L,1)=(0,1)=(0,L+1)=(L,L+1)
 c    (L,L)=(0,0)=(0,L)=(L,0)
 
          dE=dEnergy(
-     1       lt, L, L_p,       
+     1       L, L_p,       
      2       nnnumber, nnnum_p,       
      3       idx, jdy,
      4       D, Jcoop, r, T,    
@@ -147,7 +147,7 @@ c    (1,j)=(L+1,j)
        do 5 j=2,L-1 
 
          dE=dEnergy(
-     1       lt, L, L_p,       
+     1       L, L_p,       
      2       nnnumber, nnnum_p,       
      3       idx, jdy,
      4       D, Jcoop, r, T,    
@@ -173,7 +173,7 @@ c    (L,j)=(0,j)
        do 6 j=2,L-1 
 
          dE=dEnergy(
-     1       lt, L, L_p,       
+     1       L, L_p,       
      2       nnnumber, nnnum_p,       
      3       idx, jdy,
      4       D, Jcoop, r, T,    
@@ -199,7 +199,7 @@ c    (i,1)=(i,L+1)
        do 7 i=2,L-1 
         
          dE=dEnergy(
-     1       lt, L, L_p,       
+     1       L, L_p,       
      2       nnnumber, nnnum_p,       
      3       idx, jdy,
      4       D, Jcoop, r, T,    
@@ -225,7 +225,7 @@ c    (i,L)=(i,0)
        do 8 i=2,L-1 
 
          dE=dEnergy(
-     1       lt, L, L_p,       
+     1       L, L_p,       
      2       nnnumber, nnnum_p,       
      3       idx, jdy,
      4       D, Jcoop, r, T,    
@@ -252,7 +252,7 @@ cc   (i,j):   ijatom(i,j) = 1 or -1
         do 92 j=2,L-1 
 
          dE=dEnergy(
-     1       lt, L, L_p,       
+     1       L, L_p,       
      2       nnnumber, nnnum_p,       
      3       idx, jdy,
      4       D, Jcoop, r, T,    
@@ -280,7 +280,5 @@ cc   (i,j):   ijatom(i,j) = 1 or -1
        Mt(itime)=M
 
 101   continue 
-
-c       WRITE(*,*) 'Et(itime)',E,'Mt(itime)',M
 
       end
