@@ -22,4 +22,4 @@ Then simply run compiled file:
 ./a.out
 ```
 ## License
-Distributed under the GNU GPL License. See `LICENSE.txt` for more information.
+Published under the GNU GPL License. See `LICENSE.txt` for more information.
