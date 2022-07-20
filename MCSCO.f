@@ -23,7 +23,7 @@ c Monte Carlo simulation of Ising-like SCO model in 3D
      3         L, Ti, Tf, nTs, nrp,
      4         D, Jcoop, r, q )
 
-      WRITE(*,*) 'Input is okay'
+      WRITE(*,*) 'Input load O.K.'
 
       call corepart(
      1          outputFile,

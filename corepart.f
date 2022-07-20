@@ -31,30 +31,32 @@
 c Hysteresis-leading variables
        real*8 ni, ntt, leadT
 c  Internal variables:
-       integer itime, M, i,j
+       integer itime, M, i,j,k
        real*8  T, E
 c nncoords:
        integer nnnumber, nnnum_p
        parameter( nnnum_p=8 )
-       integer idx(nnnum_p), jdy(nnnum_p)
+       integer idx(nnnum_p), jdy(nnnum_p), kdz(nnnum_p)
 c latinit:
-       integer ijatom(0:L_p+1,0:L_p+1)
+       integer ijatom(0:L_p+1,0:L_p+1,0:L_p+1)
 c functions:
        real*8  Energy, dEnergy
 
        call lattice(
      2       nnnumber, nnnum_p,
-     3       idx, jdy )
+     3       idx, jdy, kdz )
        
        call latinit(
      1       L, L_p,
      2       ConcInit,
      3       ijatom )
+
+      WRITE(*,*) 'Primary lattice initialization O.K.'
        
        E = Energy(
      1       L, L_p,
      2       nnnumber, nnnum_p,
-     3       idx, jdy,
+     3       idx, jdy, kdz,
      4       D, Jcoop,
      5       ijatom,
      6       M )  
@@ -85,7 +87,7 @@ c functions:
        call MonteCarlo(
      1        L, L_p,
      2        nnnumber, nnnum_p,
-     3        idx, jdy,
+     3        idx, jdy, kdz,
      4        D, Jcoop, r, T,
      5        E, M, 
      6        Et, Mt,
@@ -98,7 +100,7 @@ c functions:
        do 111 itime=1,nrp
          Einst(iTstep,itime)=Et(itime)
          Minst(iTstep,itime)=Mt(itime) 
-         rMinst(itime)=dfloat(Mt(itime))/dfloat(L*L)       
+         rMinst(itime)=dfloat(Mt(itime))/dfloat(L*L*L)       
          Eavg=Eavg+Et(itime)
          E2avg=E2avg+Et(itime)*Et(itime)
          avgM=avgM+rMinst(itime)
@@ -119,9 +121,9 @@ c functions:
        dEavg = sqrt( dEavg ) 
        avgdM = sqrt( avgdM )
        dMav( iTstep ) = avgdM
-       Eav( iTstep ) = Eavg/dfloat(L*L)  
+       Eav( iTstep ) = Eavg/dfloat(L*L*L)  
        E2av( iTstep ) = E2avg/dfloat(L*L*L*L)    
-       dEav( iTstep ) = dEavg/dfloat(L*L) 
+       dEav( iTstep ) = dEavg/dfloat(L*L*L) 
        
        write(31,1131) T, Eav(iTstep), avM( iTstep )
 1131   format(1X,F15.9,';',F18.9,'; ',F12.9)
