@@ -6,6 +6,8 @@ in Ising model aproximation in three dimensions.
 It generates output file with 3 columns - temperature, energy and magnetization. 
 Programs like gnuplot can be used to make graphs. 
 
+![](https://github.com/byeCl0ud/MCSCO-3D/blob/development/MCSCO_animation3D.gif)
+
 ## Building
 Use build script compile.sh to compile with Intel Fortran Compiler, 
 or gfortran_compile.sh to compile with GNU Fortran: 
