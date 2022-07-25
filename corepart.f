@@ -10,6 +10,7 @@
          integer iTstep
          real*8 D, Jcoop, r, Ti, Tf
          real*8 dT, ConcInit
+	 character(len=70) fn
 
          integer L_p, nTs_p, lt_p, nrp_p
        parameter( 
@@ -127,11 +128,29 @@ c functions:
        
        write(31,1131) T, Eav(iTstep), avM( iTstep )
 1131   format(1X,F15.9,';',F18.9,'; ',F12.9)
+
+c      do 132 i=1, nTsteps
+       write(fn,fmt='(i0,a)') iTstep, '.txt'
+       open (UNIT=16, FILE=fn, status='UNKNOWN')
+
+c       write (16,'(5E12.4)') 
+       write(16,1134) T
+1134   format(F15.1)
+       do 133 i=0,L+1
+        do 134 j=0, L+1
+	 do 135 k=0, L+1
+         write(16,1133) ( (ijatom(i,j,k)+1)/2 ),i,j,k
+1133     format(I0,I3,I3,I3)
+135    continue
+134    continue
+133    continue
+       close (16)
+c132   end do
            
            
 100   continue       
 
-      close(35)
+      close(31)
 
       return
       end
